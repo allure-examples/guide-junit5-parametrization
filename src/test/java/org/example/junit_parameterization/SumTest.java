@@ -42,4 +42,14 @@ public class SumTest {
     public void testSumParameterized(int x, int y, int sum) {
         assertEquals(x + y, sum);
     }
+
+    @ParameterizedTest
+    @MethodSource("dataProvider")
+    public void testSumAllurified(int x, int y, int sum) {
+        Allure.parameter("x", x);
+        Allure.parameter("y", y);
+        Allure.parameter("sum", sum);
+
+        assertEquals(x + y, sum);
+    }
 }
